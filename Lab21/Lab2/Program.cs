@@ -48,7 +48,7 @@ namespace Lab2
 
                                 game1.Shift(a);
 
-                                if (game1.finish())
+                                if (game1.EndGame())
                                 {
                                     game1.Print();
                                     Console.WriteLine("Вы прошли игру");

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 
 namespace Lab2
@@ -14,12 +15,13 @@ namespace Lab2
         int[,] TtemsNew = new int[we, be];
         Point[] TtemsValue = new Point[100];
         int[] Mas = new int[100];
-        
+    public static int[] ListMass = new int[100];
       
 
         public Game(int[] Mas) {
             int ae = 0;
-           RandomValues(Mas);
+            ReaderCSV();
+            //RandomValues(Mas);
             for (int i = 0; i <we; i++)
             {
                 for(int j=0; j<be; j++)
@@ -115,17 +117,13 @@ namespace Lab2
                 while (isExist);
                 Mas[i] = tmp;
             }
-
-
-           
-
         }
 
 
 
-        public Boolean finish()
+        public Boolean EndGame()
         {
-            bool temp = false;
+            bool fl = false;
             int value = 0;
             for (int i = 0; i < we; ++i)
             {
@@ -134,11 +132,11 @@ namespace Lab2
                     if (TtemsNew[i, j] == value)
                     {
 
-                        temp = true;
+                        fl = true;
                     }
                     else
                     {
-                        temp = false;
+                        fl = false;
                     }
                     ++value;
                 }
@@ -146,17 +144,35 @@ namespace Lab2
             }
             if (TtemsNew[we - 1, be - 1] == 0)
             {
-                temp = true;
+                fl = true;
             }
             else
             {
                 return false;
             }
 
-            return temp;
+            return fl;
 
         }
 
+        public static int ReaderCSV()
+        {
+            int perem = 0;
+            string[] List = File.ReadAllLines(@"C:\Users\Илья\Desktop\ForGIT\Lab2\Lab21\15puzzle\Lab21\Lab2\List.csv");
+            Char qe = ' '; 
+        
+        for (int i = 0; i < List.Length; ++i) 
+        {
+            string[] ListStr = List[i].Split(qe);
+            foreach (var Listsubstr in ListStr) 
+        {
+            ListMass[perem] = Convert.ToInt32(Listsubstr); 
+       // Console.WriteLine(areaChik[integer]); 
+            ++perem; 
+        } 
+        }
+        return perem;
+        }
       
     }
 }
