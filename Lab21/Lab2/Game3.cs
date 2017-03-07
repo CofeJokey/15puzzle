@@ -26,12 +26,26 @@ namespace Lab2
             LenghtHistory = we * Lenght;
         }
 
-public void SaveHistory(int value) 
-{
+    public void SaveHistory(int value) 
+    {
     LenghtHistory++;
     Goes[LenghtHistory] = Goes[value]; 
-}
+    }
 
+    public void undo (int newvalue, Game3 game)
+    {
+        int i = LenghtHistory;
+        for (; i < newvalue; i++)
+        // while (i<value)
+        {
+            game.Shift(game[Goes[i].x, Goes[i].y], game);
+            //    i++;
+            --i;
+        }
+      //  i--;   
+    }
+    
+    
 
     }
 

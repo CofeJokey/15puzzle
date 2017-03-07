@@ -23,7 +23,7 @@ namespace Lab2
             p[15] = 0;
             Game3 game1 = new Game3(p,i);
          //   Game game1 = new Game(p, i);
-            game1.RandomValues(p);
+          //  game1.RandomValues(p);
             while (true)
             {
                 Console.WriteLine("Выберите действие:" + Environment.NewLine + "1 - играть" + Environment.NewLine + "6 - выход");

@@ -52,7 +52,7 @@ namespace Lab2
 
         }
         
-        public virtual void Shift(int value, Game3 QQW) 
+    public void Shift(int value, Game3 QQW) 
     { 
 
     try 
