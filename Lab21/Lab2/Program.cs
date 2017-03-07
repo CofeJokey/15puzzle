@@ -11,6 +11,7 @@ namespace Lab2
     {
         static void Main(string[] args)
         {
+          
             int i;
             int[] p = new int[100];
 
@@ -20,9 +21,9 @@ namespace Lab2
             }
 
             p[15] = 0;
-            Game game1 = new Game(p);
-
-
+            Game3 game1 = new Game3(p,i);
+         //   Game game1 = new Game(p, i);
+            game1.RandomValues(p);
             while (true)
             {
                 Console.WriteLine("Выберите действие:" + Environment.NewLine + "1 - играть" + Environment.NewLine + "6 - выход");
@@ -37,17 +38,17 @@ namespace Lab2
                     {
                         case 1:
 
-
                             for (; ; )
                             {
+                           
                                 game1.Print();
-
+                                
                                 Console.WriteLine("Двигайте цифру ");
 
                                 int a = Convert.ToInt32(Console.ReadLine());
 
-                                game1.Shift(a);
-
+                                game1.Shift(a, game1);
+                                
                                 if (game1.EndGame())
                                 {
                                     game1.Print();
@@ -57,7 +58,7 @@ namespace Lab2
                                 }
 
                             }
-                            break;
+                          break;
                         case 6:
                             Environment.Exit(0);
                             break;

@@ -11,28 +11,29 @@ namespace Lab2
     class Game
     {
     //    protected Item[] items;
-        const int we = 4, be = 4;
-        int[,] TtemsNew = new int[we, be];
-        Point[] TtemsValue = new Point[100];
-        int[] Mas = new int[100];
-    public static int[] ListMass = new int[100];
-      
+       public const int we = 4, be = 4;
+       public int[,] TtemsNew = new int[we, be];
+       public Point[] TtemsValue = new Point[100];
+       public int[] Mas = new int[100];
+       public static int[] ListMass = new int[100];
+       public  int Lenght = 0;
 
-        public Game(int[] Mas) {
+        public Game(int[] Mas,int qe) {
+            Lenght = qe;
             int ae = 0;
             ReaderCSV();
-            //RandomValues(Mas);
+           // RandomValues(Mas);
             for (int i = 0; i <we; i++)
             {
                 for(int j=0; j<be; j++)
                 {
-                    TtemsNew[i, j] = Mas[ae];
-                    TtemsValue[Mas[ae]] = new Point(i, j);
+                    TtemsNew[i, j] = ListMass[ae];
+                    TtemsValue[ListMass[ae]] = new Point(i, j);
                     ae++;
                 }
             }
         }
-        private Point GetLoc(int value)
+        public Point GetLoc(int value)
         {
             return TtemsValue[value];
         }
@@ -51,7 +52,7 @@ namespace Lab2
 
         }
         
-        public void Shift(int value) 
+        public virtual void Shift(int value, Game3 QQW) 
     { 
 
     try 
@@ -75,7 +76,8 @@ namespace Lab2
 
     var vere = TtemsValue[0];
     TtemsValue[0] = TtemsValue[value];
-    TtemsValue[value] = vere; 
+    TtemsValue[value] = vere;
+    QQW.SaveHistory(value);
     } 
 
      else 
@@ -97,63 +99,73 @@ namespace Lab2
 
     }
 
-        public void RandomValues(int[] Mas)
-        {
-            int tmp = 0;
-            Random rnd = new Random();
+        //public void RandomValues(int[] Mas)
+        //{
+        //    int tmp = 0;
+        //    Random rnd = new Random();
        
-            for (int i = 0; i < 16; i++)
-            {
-                bool isExist = false;
-                do
-                {
-                    isExist = false;
-                    tmp = rnd.Next(0, 16);
-                    for (int j = 0; j < i; j++)
-                    {
-                        if (tmp == Mas[j]) { isExist = true; }
-                    }
-                }
-                while (isExist);
-                Mas[i] = tmp;
-            }
-        }
+        //    for (int i = 0; i < 16; i++)
+        //    {
+        //        bool isExist = false;
+        //        do
+        //        {
+        //            isExist = false;
+        //            tmp = rnd.Next(0, 16);
+        //            for (int j = 0; j < i; j++)
+        //            {
+        //                if (tmp == Mas[j]) { isExist = true; }
+        //            }
+        //        }
+        //        while (isExist);
+        //        Mas[i] = tmp;
+        //    }
+        //}
 
 
 
-        public Boolean EndGame()
-        {
-            bool fl = false;
-            int value = 0;
-            for (int i = 0; i < we; ++i)
-            {
-                for (int j = 0; j < be; ++j)
-                {
-                    if (TtemsNew[i, j] == value)
-                    {
+        //public Boolean EndGame()
+        //{
+        //    bool fl = false;
+        //    int value = 1;
+        //    for (int i = 0; i < we; ++i)
+        //    {
+        //        for (int j = 0; j < be; ++j)
+        //        {
+        //            if (TtemsNew[i, j] == value)
+        //            {
 
-                        fl = true;
-                    }
-                    else
-                    {
-                        fl = false;
-                    }
-                    ++value;
-                }
+        //                fl = true;
+        //                value++;
+        //                if (value == Lenght)
+        //                {
+        //                    value = 0;
+        //                }
+        //            }
+        //            else
+        //            {
+        //                return false;
+        //            }
 
-            }
-            if (TtemsNew[we - 1, be - 1] == 0)
-            {
-                fl = true;
-            }
-            else
-            {
-                return false;
-            }
+        //        }
 
-            return fl;
 
-        }
+        //    }
+        //    return fl;
+        //}
+
+
+        //    if (TtemsNew[we - 1, be - 1] == 0)
+        //    {
+        //        fl = true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+
+        //    return fl;
+
+        //}
 
         public static int ReaderCSV()
         {
