@@ -20,7 +20,7 @@ namespace Lab2
              
         }
 
-        public void RandomValues()
+        public virtual void RandomValues()
         {
             int tmp = 0;
             items = new Item[16];
@@ -58,6 +58,7 @@ namespace Lab2
         {
             base.Shift(value);
         }
+
         public bool EndGame()
         {
             int i = 0;

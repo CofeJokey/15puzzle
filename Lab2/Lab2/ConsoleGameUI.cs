@@ -21,22 +21,28 @@ namespace Lab2
             {
                 for (int j = 0; j < width; j++)
                 {
-                    Console.Write("{0,5}", (i * width + j));
+                    Console.Write("{0,5}", items[i * width + j].value);
                 }
                 Console.WriteLine();
             }
             Console.WriteLine();
         }
 
+
+
+
+
+
         public void Shift()
         {
             IPLAY.Shift(Convert.ToInt32(Console.ReadLine()));
         }
 
+
         public void PlayGame()
         {
 
-           // IPLAY.RandomValues();
+           //IPLAY.RandomValues();
             Console.WriteLine("***** Игра в 15 ****");
             Console.WriteLine();
             Print();
@@ -63,41 +69,14 @@ namespace Lab2
                                 Console.WriteLine("Вы прошли игру");
                                 break;
                             }
-                            Console.WriteLine("1 - Отменить перемещение, 2 - продолжить игру");
-                            try
-                            {
-                                int keys = Convert.ToInt16(Console.ReadLine());
-                                if (keys <= 0 || keys > 2) { throw new ArgumentException("blabla"); }
-                                switch (keys)
-                                {
-                                    case 1:
-                                           
-                                       // NewStepBack();
-                                        Print();
-                                        break;
-
-                                    case 2:
-                                        break;
-
-
-                                    default: break;
-                                }
-                            }
-                            catch (ArgumentException e)
-                            {
-                                Console.WriteLine("Недопустимый символ, попробуйте еще раз");
-                                Console.WriteLine(e.Message);
-                            }
-                            catch
-                            {
-                                Console.WriteLine("error 2");
-                            }
+                           
+                            
 
                             break;
 
                         case 2:
 
-                            //Back();
+                            //NewStepBack();
                             Print();
 
                             break;
