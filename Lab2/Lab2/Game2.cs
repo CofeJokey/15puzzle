@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab2
 {
-    class Game2 :Game
+    class Game2 :Game, IPlayable
     {
         //int leght = 4;
         //int height = 4;
@@ -54,7 +54,10 @@ namespace Lab2
             }
         }
 
-
+        //public override void Shift(int value)
+        //{
+        //    base.Shift(value);
+        //}
         public bool EndGame()
         {
             int i = 0;

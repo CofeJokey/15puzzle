@@ -11,6 +11,8 @@ namespace Lab2
         void RandomValues();
         bool EndGame();
         void Shift(int value);
+    //    int NewValue { get; }
+      int this[int index] { get; }
     }
 
 }

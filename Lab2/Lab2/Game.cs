@@ -11,6 +11,7 @@ namespace Lab2
     {
         public int Lenght = 0;
         public Item[] items;
+        public int NewLength { get; set; }
         public int Length
         {
             get
@@ -35,6 +36,7 @@ namespace Lab2
         public Game(int el1, int el2, int el3, int el4, int el5, int el6, int el7, int el8,
             int el9, int el10, int el11, int el12, int el13, int el14, int el15, int el16)
         {
+            NewLength= (int)Math.Sqrt(this.Length);
             items = new Item[] 
             {
                 new Item(el1,0,0),
@@ -70,18 +72,18 @@ namespace Lab2
                 items[index] = value;
             }
         }
-        public void Print()
-        {
-            for (int i=0;i<this.Length;i++)
-            {
-                for (int j = 0; j <this.Length;j++ )
-                {
-                    Console.Write("{0,5}",items[i*this.Length+j].value);
-                }
-                Console.WriteLine();
-            }
-            Console.WriteLine();
-        }
+        //public void Print()
+        //{
+        //    for (int i = 0; i < this.Length; i++)
+        //    {
+        //        for (int j = 0; j < this.Length; j++)
+        //        {
+        //            Console.Write("{0,5}", items[i * this.Length + j].value);
+        //        }
+        //        Console.WriteLine();
+        //    }
+        //    Console.WriteLine();
+        //}
 
 
 
