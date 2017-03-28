@@ -9,7 +9,7 @@ namespace Lab2
     class ConsoleGameUI
     {
         IPlayable IPLAY;
-
+        public int width = 4;
         public ConsoleGameUI(IPlayable games)
         {
             IPLAY = games;
@@ -17,11 +17,11 @@ namespace Lab2
 
         public void Print()
         {
-            for (int i = 0; i < IPLAY.NewLength; i++)
+            for (int i = 0; i < width; i++)
             {
-                for (int j = 0; j < IPLAY.NewLength; j++)
+                for (int j = 0; j < width; j++)
                 {
-                    Console.Write("{0,5}", IPLAY[i * IPLAY.NewLength + j].value);
+                    Console.Write("{0,5}", (i * width + j));
                 }
                 Console.WriteLine();
             }
@@ -36,7 +36,7 @@ namespace Lab2
         public void PlayGame()
         {
 
-            IPLAY.RandomValues();
+           // IPLAY.RandomValues();
             Console.WriteLine("***** Игра в 15 ****");
             Console.WriteLine();
             Print();

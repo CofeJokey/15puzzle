@@ -20,11 +20,11 @@ namespace Lab2
         //StepCount = 0;
         }
 
-        public override void Shift(int value)
-        {
-            base.Shift(value);
-            Steps.Add(value);
-        }
+        //public override void Shift(int value)
+        //{
+        //    base.Shift(value);
+        //    Steps.Add(value);
+        //}
 
         //public void History(int newvalue)
         //{

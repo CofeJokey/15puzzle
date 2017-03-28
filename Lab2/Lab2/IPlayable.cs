@@ -12,7 +12,7 @@ namespace Lab2
         bool EndGame();
         void Shift(int value);
     //    int NewValue { get; }
-      int this[int index] { get; }
+     // int this[int index] { get; }
     }
 
 }

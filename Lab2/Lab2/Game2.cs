@@ -54,10 +54,10 @@ namespace Lab2
             }
         }
 
-        //public override void Shift(int value)
-        //{
-        //    base.Shift(value);
-        //}
+        public override void Shift(int value)
+        {
+            base.Shift(value);
+        }
         public bool EndGame()
         {
             int i = 0;
